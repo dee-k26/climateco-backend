@@ -47,17 +47,18 @@ app.post("/api/send-inquiry", upload.fields([
 
         const mailContent = `
 Online Enquiry
-Online enquiry from \${firstName} \${lastName}.
+Online enquiry from ${firstName} ${lastName}.
 
-Company: \${firstName} \${lastName}
-First Name: \${firstName}
-Last Name: \${lastName}
-Email: \${email || "Not Provided"}
-Mobile: \${mobile}
-Address: \${address}
-Description: \${description}
-Status: \${jobType}
-        `;
+Company: ${firstName} ${lastName}
+First Name: ${firstName}
+Last Name: ${lastName}
+Email: ${email || "Not Provided"}
+Mobile: ${mobile}
+Address: ${address}
+Description: ${description}
+Status: ${jobType}
+`;
+
 
         const attachments = [];
         if (req.files["existingSwitchImage"]) {
