@@ -61,13 +61,23 @@ Status: ${jobType}
 
 
         const attachments = [];
-        if (req.files["existingSwitchImage"]) {
-            const file = req.files["existingSwitchImage"][0];
+
+        const existingSwitchFile = req?.files?.["existingSwitchImage"]?.[0];
+        if (existingSwitchFile) {
             attachments.push({
                 filename: "ExistingSwitchSystem.jpg",
-                content: file.buffer
+                content: existingSwitchFile.buffer,
             });
         }
+
+        const switchBoardFile = req?.files?.["switchBoardImage"]?.[0];
+        if (switchBoardFile) {
+            attachments.push({
+                filename: "SwitchBoard.jpg",
+                content: switchBoardFile.buffer,
+            });
+        }
+
 
         if (req.files["switchBoardImage"]) {
             const file = req.files["switchBoardImage"][0];
